@@ -1,4 +1,4 @@
-// store the data (default data)
+// Store the data (default data)
 const todoList = ["Learn JS Fundamental", "Learn JS OOP", "Learn JS DOM"];
 
 /**
@@ -18,20 +18,22 @@ function clearTodoList() {
  * @param {number} index - The index of the todo item to remove.
  */
 function removeTodoList(index) {
+  console.log(`Remove item at index ${index}`);
   todoList.splice(index, 1);
   displayTodoList();
 }
 
 /**
- * create todo list display when user input
- * @param {todo} todo from parameter when user input
+ * Creates a todo list item and appends it to the display.
+ * @param {number} index - The index of the todo item in the list.
+ * @param {string} todo - The todo item text.
  */
 function addTodoList(index, todo) {
   const todoDisplay = document.querySelector("ul");
   const list = document.createElement("li");
   const listButton = document.createElement("button");
   listButton.textContent = "Done";
-  listButton.onclick = function (index) {
+  listButton.onclick = function () {
     removeTodoList(index);
   };
   list.appendChild(listButton);
@@ -58,7 +60,7 @@ function displayTodoList() {
     const searchText = document.getElementById("search").value.toLowerCase();
 
     if (todo.toLowerCase().includes(searchText)) {
-      // call addTodoList()
+      // Call addTodoList()
       addTodoList(i, todo);
     }
   }
@@ -74,10 +76,10 @@ function displayTodoList() {
  * @param {Event} event - The event object representing the form submission.
  */
 document.forms["todoForm"].onsubmit = function (event) {
-  // reset prevent default()
+  // Prevent default form submission
   event.preventDefault();
 
-  // get the data from todo input and store the data to todos
+  // Get the data from todo input and store the data to todos
   const todo = document.forms["todoForm"]["todo"].value;
   todoList.push(todo);
 
@@ -92,7 +94,9 @@ displayTodoList();
 const searchInput = document.getElementById("search");
 
 /**
- * if user click the input will filter every todo list
+ * Filters the todo list based on user input.
+ * This listener updates the displayed todo list whenever the user
+ * types in the search input field.
  * @listener [keydown and keyup]
  */
 searchInput.addEventListener("keydown", () => {
