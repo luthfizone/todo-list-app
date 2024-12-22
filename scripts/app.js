@@ -18,7 +18,6 @@ function clearTodoList() {
  * @param {number} index - The index of the todo item to remove.
  */
 function removeTodoList(index) {
-  console.log(`Remove item at index ${index}`);
   todoList.splice(index, 1);
   displayTodoList();
 }
