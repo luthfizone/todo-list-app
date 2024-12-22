@@ -1,0 +1,109 @@
+:root {
+  --main-background: #f4f4f9;
+  --header-background: #6200ea;
+  --button-hover: #3700b3;
+  --text-color: #333;
+  --input-border: #ccc;
+  --box-shadow: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--main-background);
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+header {
+  background-color: var(--header-background);
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 4px 8px var(--box-shadow);
+}
+
+.todo-form,
+.filter-section {
+  margin: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px var(--box-shadow);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+[type="text"],
+[type="search"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  transition: border-color 0.3s;
+}
+
+[type="text"]:focus,
+[type="search"]:focus {
+  border-color: var(--header-background);
+  outline: none;
+}
+
+[type="submit"],
+button {
+  background-color: var(--header-background);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+[type="submit"]:hover,
+button:hover {
+  background-color: var(--button-hover);
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px;
+}
+
+.todo-list li {
+  background-color: #fff;
+  margin-bottom: 12px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px var(--box-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.todo-list li:hover {
+  transform: translateY(-2px);
+}

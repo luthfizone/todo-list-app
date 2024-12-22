@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TodoList App</title>
+    <link rel="stylesheet" href="styles/style.css" media="screen" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>TodoList</h1>
+      </header>
+      <form name="todoForm" class="todo-form">
+        <div class="form-group">
+          <label for="todo">Todo :</label>
+          <input type="text" name="todo" id="todo" />
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Add" />
+        </div>
+      </form>
+
+      <div class="filter-section">
+        <label for="search">Filter :</label>
+        <input type="search" name="search" id="search" />
+      </div>
+
+      <ul class="todo-list">
+        <li>
+          <button type="button">Done</button>
+          <span>Todo Description</span>
+        </li>
+      </ul>
+    </div>
+    <script src="./scripts/app.js"></script>
+  </body>
+</html>
