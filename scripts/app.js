@@ -14,6 +14,24 @@ function clearTodoList() {
 }
 
 /**
+ * create todo list display when user input
+ * @param {todo} todo from parameter when user input
+ */
+function addTodoList(todo) {
+  const todoDisplay = document.querySelector("ul");
+  const list = document.createElement("li");
+  const listButton = document.createElement("button");
+  listButton.textContent = "Done";
+  list.appendChild(listButton);
+
+  const todoItem = document.createElement("span");
+  todoItem.textContent = todo;
+  list.appendChild(todoItem);
+
+  todoDisplay.appendChild(list);
+}
+
+/**
  * Displays the current todo list.
  * This function first clears the existing displayed list and then
  * iterates over the `todoList` array to create and append list items
@@ -23,19 +41,10 @@ function displayTodoList() {
   clearTodoList();
 
   for (let i = 0; i < todoList.length; i++) {
-    const todoDisplay = document.querySelector("ul");
     const todo = todoList[i];
 
-    const list = document.createElement("li");
-    const listButton = document.createElement("button");
-    listButton.textContent = "Done";
-    list.appendChild(listButton);
-
-    const todoItem = document.createElement("span");
-    todoItem.textContent = todo;
-    list.appendChild(todoItem);
-
-    todoDisplay.appendChild(list);
+    // call addTodoList()
+    addTodoList(todo);
   }
 }
 
