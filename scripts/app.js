@@ -43,8 +43,12 @@ function displayTodoList() {
   for (let i = 0; i < todoList.length; i++) {
     const todo = todoList[i];
 
-    // call addTodoList()
-    addTodoList(todo);
+    const searchText = document.getElementById("search").value.toLowerCase();
+
+    if (todo.toLowerCase().includes(searchText)) {
+      // call addTodoList()
+      addTodoList(todo);
+    }
   }
 }
 
@@ -73,3 +77,16 @@ document.forms["todoForm"].onsubmit = function (event) {
 
 // Initial display of the todo list
 displayTodoList();
+
+const searchInput = document.getElementById("search");
+
+/**
+ * if user click the input will filter every todo list
+ * @listener [keydown and keyup]
+ */
+searchInput.addEventListener("keydown", () => {
+  displayTodoList();
+});
+searchInput.addEventListener("keyup", () => {
+  displayTodoList();
+});
