@@ -14,14 +14,26 @@ function clearTodoList() {
 }
 
 /**
+ * Removes a todo item from the list based on the given index.
+ * @param {number} index - The index of the todo item to remove.
+ */
+function removeTodoList(index) {
+  todoList.splice(index, 1);
+  displayTodoList();
+}
+
+/**
  * create todo list display when user input
  * @param {todo} todo from parameter when user input
  */
-function addTodoList(todo) {
+function addTodoList(index, todo) {
   const todoDisplay = document.querySelector("ul");
   const list = document.createElement("li");
   const listButton = document.createElement("button");
   listButton.textContent = "Done";
+  listButton.onclick = function (index) {
+    removeTodoList(index);
+  };
   list.appendChild(listButton);
 
   const todoItem = document.createElement("span");
@@ -47,7 +59,7 @@ function displayTodoList() {
 
     if (todo.toLowerCase().includes(searchText)) {
       // call addTodoList()
-      addTodoList(todo);
+      addTodoList(i, todo);
     }
   }
 }
@@ -70,7 +82,6 @@ document.forms["todoForm"].onsubmit = function (event) {
   todoList.push(todo);
 
   document.forms["todoForm"].reset();
-  console.log(todoList);
 
   displayTodoList();
 };
